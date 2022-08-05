@@ -68,7 +68,6 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<SagasDbContext>();
     db.Database.EnsureCreated();
-    //db.Database.Migrate();
 }
 
 app.UseHttpsRedirection();

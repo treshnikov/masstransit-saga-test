@@ -9,7 +9,7 @@
 .settings/
 *.sublime-workspace
 *.log
-taskly.db
+*.txt
 *.db-shm
 *.db-wal
 dist
