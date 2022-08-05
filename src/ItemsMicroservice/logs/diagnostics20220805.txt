@@ -1,0 +1,401 @@
+2022-08-05 16:45:27.847 +04:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-05 16:45:27.897 +04:00 [DBG] Hosting starting
+2022-08-05 16:45:28.032 +04:00 [INF] Configured endpoint add-items, Consumer: ItemsMicroservice.Consumers.AddItemsConsumer
+2022-08-05 16:45:28.036 +04:00 [INF] Configured endpoint get-items, Consumer: ItemsMicroservice.Consumers.GetItemsConsumer
+2022-08-05 16:45:28.127 +04:00 [DBG] Starting bus instances: IBus
+2022-08-05 16:45:28.134 +04:00 [DBG] Starting bus: "rabbitmq://localhost:0/"
+2022-08-05 16:45:28.160 +04:00 [DBG] Connect: rabbitmq@localhost:5672/
+2022-08-05 16:45:28.226 +04:00 [DBG] Unable to locate an appropriate development https certificate.
+2022-08-05 16:45:28.231 +04:00 [DBG] Stopping bus instances: IBus
+2022-08-05 16:45:28.235 +04:00 [WRN] Failed to stop bus: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmo5bbdp8pan98b?temporary=true" (Not Started)
+2022-08-05 16:45:28.240 +04:00 [WRN] Connection Failed: "rabbitmq://localhost:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2022-08-05 16:45:28.279 +04:00 [DBG] Bus start faulted, stopping host
+MassTransit.RabbitMqTransport.RabbitMqConnectionException: Broker unreachable: rabbitmq@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+   at GreenPipes.Internals.Extensions.TaskExtensions.<>c__DisplayClass5_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Internals.Extensions.SupervisorExtensions.<>c__DisplayClass0_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at GreenPipes.Internals.Extensions.TaskExtensions.<>c__DisplayClass5_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.Integration.ModelContextFactory.CreateSharedModel(Task`1 context, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ISupervisor`1 supervisor, CancellationToken cancellationToken)
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport()
+   at MassTransit.Transports.StartHostHandle.EndpointsReady(Task`1[] endpoints)
+   at MassTransit.Transports.StartHostHandle.ReadyOrNot(Task`1[] endpoints, Task`1[] riders)
+   at MassTransit.MassTransitBus.Handle.ReadyOrNot(Task`1 ready)
+   at GreenPipes.Internals.Extensions.TaskExtensions.<>c__DisplayClass5_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+2022-08-05 16:45:28.279 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/add-items"
+2022-08-05 16:45:28.279 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmo5bbdp8pan98b?temporary=true"
+2022-08-05 16:45:28.279 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/get-items"
+2022-08-05 16:45:28.305 +04:00 [DBG] Stopping bus: "rabbitmq://localhost:0/"
+2022-08-05 16:45:28.312 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/add-items"
+2022-08-05 16:45:28.315 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/add-items"
+2022-08-05 16:45:28.325 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/get-items"
+2022-08-05 16:45:28.325 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/get-items"
+2022-08-05 16:45:28.326 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmo5bbdp8pan98b?temporary=true"
+2022-08-05 16:45:28.327 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmo5bbdp8pan98b?temporary=true"
+2022-08-05 16:45:28.330 +04:00 [INF] Bus stopped: "rabbitmq://localhost:0/"
+2022-08-05 21:36:32.714 +04:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-05 21:36:32.771 +04:00 [DBG] Hosting starting
+2022-08-05 21:36:32.900 +04:00 [INF] Configured endpoint add-items, Consumer: ItemsMicroservice.Consumers.AddItemsConsumer
+2022-08-05 21:36:32.905 +04:00 [INF] Configured endpoint get-items, Consumer: ItemsMicroservice.Consumers.GetItemsConsumer
+2022-08-05 21:36:33.002 +04:00 [DBG] Starting bus instances: IBus
+2022-08-05 21:36:33.006 +04:00 [DBG] Starting bus: "rabbitmq://localhost:0/"
+2022-08-05 21:36:33.029 +04:00 [DBG] Connect: rabbitmq@localhost:5672/
+2022-08-05 21:36:33.076 +04:00 [INF] Now listening on: http://localhost:5019
+2022-08-05 21:36:33.079 +04:00 [DBG] Loaded hosting startup assembly ItemsMicroservice
+2022-08-05 21:36:33.080 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-05 21:36:33.081 +04:00 [INF] Hosting environment: Development
+2022-08-05 21:36:33.082 +04:00 [INF] Content root path: D:\github\microservices-archetecture\MicroservicesWithSagas\ItemsMicroservice\
+2022-08-05 21:36:33.084 +04:00 [DBG] Hosting started
+2022-08-05 21:36:33.111 +04:00 [WRN] Connection Failed: "rabbitmq://localhost:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2022-08-05 21:36:33.142 +04:00 [DBG] Bus start faulted, stopping host
+MassTransit.RabbitMqTransport.RabbitMqConnectionException: Broker unreachable: rabbitmq@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> RabbitMQ.Client.Exceptions.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+   at GreenPipes.Internals.Extensions.TaskExtensions.<>c__DisplayClass5_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Internals.Extensions.SupervisorExtensions.<>c__DisplayClass0_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.Extensions.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.Integration.ModelContextFactory.CreateSharedModel(Task`1 context, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at GreenPipes.Agents.PipeContextSupervisor`1.GreenPipes.IPipeContextSource<TContext>.Send(IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ISupervisor`1 supervisor, CancellationToken cancellationToken)
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport()
+   at MassTransit.Transports.StartHostHandle.EndpointsReady(Task`1[] endpoints)
+   at MassTransit.Transports.StartHostHandle.ReadyOrNot(Task`1[] endpoints, Task`1[] riders)
+   at MassTransit.MassTransitBus.Handle.ReadyOrNot(Task`1 ready)
+   at GreenPipes.Internals.Extensions.TaskExtensions.<>c__DisplayClass5_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.MassTransitBus.StartAsync(CancellationToken cancellationToken)
+2022-08-05 21:36:33.145 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:36:33.145 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybm8bhbdp8qnejgb?temporary=true"
+2022-08-05 21:36:33.145 +04:00 [DBG] Endpoint Faulted: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:36:33.165 +04:00 [DBG] Stopping bus: "rabbitmq://localhost:0/"
+2022-08-05 21:36:33.176 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:36:33.178 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:36:33.184 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:36:33.185 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:36:33.186 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybm8bhbdp8qnejgb?temporary=true"
+2022-08-05 21:36:33.188 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybm8bhbdp8qnejgb?temporary=true"
+2022-08-05 21:36:33.191 +04:00 [INF] Bus stopped: "rabbitmq://localhost:0/"
+2022-08-05 21:36:50.462 +04:00 [INF] Application is shutting down...
+2022-08-05 21:36:50.463 +04:00 [DBG] Hosting stopping
+2022-08-05 21:36:50.476 +04:00 [DBG] Stopping bus instances: IBus
+2022-08-05 21:36:50.480 +04:00 [WRN] Failed to stop bus: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybm8bhbdp8qnejgb?temporary=true" (Not Started)
+2022-08-05 21:36:50.484 +04:00 [DBG] Hosting stopped
+2022-08-05 21:37:37.678 +04:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-05 21:37:37.810 +04:00 [DBG] Hosting starting
+2022-08-05 21:37:38.099 +04:00 [INF] Configured endpoint add-items, Consumer: ItemsMicroservice.Consumers.AddItemsConsumer
+2022-08-05 21:37:38.106 +04:00 [INF] Configured endpoint get-items, Consumer: ItemsMicroservice.Consumers.GetItemsConsumer
+2022-08-05 21:37:38.267 +04:00 [DBG] Starting bus instances: IBus
+2022-08-05 21:37:38.275 +04:00 [DBG] Starting bus: "rabbitmq://localhost:0/"
+2022-08-05 21:37:38.321 +04:00 [DBG] Connect: rabbitmq@localhost:5672/
+2022-08-05 21:37:38.382 +04:00 [INF] Now listening on: http://localhost:5019
+2022-08-05 21:37:38.383 +04:00 [DBG] Loaded hosting startup assembly ItemsMicroservice
+2022-08-05 21:37:38.385 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-05 21:37:38.387 +04:00 [INF] Hosting environment: Development
+2022-08-05 21:37:38.389 +04:00 [INF] Content root path: D:\github\microservices-archetecture\MicroservicesWithSagas\ItemsMicroservice\
+2022-08-05 21:37:38.391 +04:00 [DBG] Hosting started
+2022-08-05 21:37:38.423 +04:00 [DBG] Connected: rabbitmq@localhost:5672/ (address: amqp://localhost:5672, local: 63147)
+2022-08-05 21:37:38.468 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybksejbdp8qnjori?temporary=true"
+2022-08-05 21:37:38.493 +04:00 [DBG] Declare queue: name: add-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 21:37:38.494 +04:00 [DBG] Declare queue: name: get-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 21:37:38.517 +04:00 [DBG] Declare exchange: name: add-items, type: fanout, durable
+2022-08-05 21:37:38.517 +04:00 [DBG] Declare exchange: name: get-items, type: fanout, durable
+2022-08-05 21:37:38.521 +04:00 [DBG] Declare exchange: name: Contracts:IAddItemsRequest, type: fanout, durable
+2022-08-05 21:37:38.521 +04:00 [DBG] Declare exchange: name: Contracts:IGetItemsRequest, type: fanout, durable
+2022-08-05 21:37:38.548 +04:00 [DBG] Bind queue: source: get-items, destination: get-items
+2022-08-05 21:37:38.552 +04:00 [DBG] Bind queue: source: add-items, destination: add-items
+2022-08-05 21:37:38.595 +04:00 [DBG] Bind exchange: source: Contracts:IAddItemsRequest, destination: add-items
+2022-08-05 21:37:38.595 +04:00 [DBG] Bind exchange: source: Contracts:IGetItemsRequest, destination: get-items
+2022-08-05 21:37:38.701 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/get-items" - amq.ctag-SH3oRhg1UCsbhH4ZyqtE5g
+2022-08-05 21:37:38.701 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/add-items" - amq.ctag-pa57fqNJ4y763LSZQezlfg
+2022-08-05 21:37:38.704 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:37:38.705 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:37:38.711 +04:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2022-08-05 21:39:12.546 +04:00 [DBG] Create send transport: "rabbitmq://localhost:0/buy-items-saga-state"
+2022-08-05 21:39:12.581 +04:00 [DBG] RECEIVE "rabbitmq://localhost:0/get-items" "14400000-5df3-0015-3550-08da770968dc" Contracts.IGetItemsRequest ItemsMicroservice.Consumers.GetItemsConsumer("00:00:00.0439164")
+2022-08-05 21:39:12.597 +04:00 [DBG] Declare exchange: name: buy-items-saga-state, type: fanout, durable
+2022-08-05 21:39:12.681 +04:00 [DBG] SEND "rabbitmq://localhost:0/buy-items-saga-state" "da210000-5df3-0015-b1e7-08da770968fa" Contracts.IGetItemsResponse
+2022-08-05 21:41:30.876 +04:00 [INF] Application is shutting down...
+2022-08-05 21:41:30.877 +04:00 [DBG] Hosting stopping
+2022-08-05 21:41:30.887 +04:00 [DBG] Stopping bus instances: IBus
+2022-08-05 21:41:30.892 +04:00 [DBG] Stopping bus: "rabbitmq://localhost:0/"
+2022-08-05 21:41:30.897 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:41:30.899 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:41:30.907 +04:00 [DBG] Stopping Consumer: "rabbitmq://localhost:0/add-items" - amq.ctag-pa57fqNJ4y763LSZQezlfg
+2022-08-05 21:41:30.912 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:41:30.912 +04:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost:0/add-items" - amq.ctag-pa57fqNJ4y763LSZQezlfg
+2022-08-05 21:41:30.913 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:41:30.915 +04:00 [DBG] Stopping Consumer: "rabbitmq://localhost:0/get-items" - amq.ctag-SH3oRhg1UCsbhH4ZyqtE5g
+2022-08-05 21:41:30.917 +04:00 [DBG] Endpoint Stopping: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybksejbdp8qnjori?temporary=true"
+2022-08-05 21:41:30.917 +04:00 [DBG] Endpoint Completed: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:41:30.918 +04:00 [DBG] Stopping receive transport: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybksejbdp8qnjori?temporary=true"
+2022-08-05 21:41:30.918 +04:00 [DBG] Consumer Cancel Ok: "rabbitmq://localhost:0/get-items" - amq.ctag-SH3oRhg1UCsbhH4ZyqtE5g
+2022-08-05 21:41:30.919 +04:00 [DBG] Consumer completed amq.ctag-pa57fqNJ4y763LSZQezlfg: 0 received, 0 concurrent
+2022-08-05 21:41:30.919 +04:00 [DBG] Endpoint Completed: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybksejbdp8qnjori?temporary=true"
+2022-08-05 21:41:30.920 +04:00 [DBG] Stopping send transport: buy-items-saga-state
+2022-08-05 21:41:30.921 +04:00 [DBG] Endpoint Completed: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:41:30.929 +04:00 [DBG] Consumer completed amq.ctag-SH3oRhg1UCsbhH4ZyqtE5g: 1 received, 1 concurrent
+2022-08-05 21:41:30.943 +04:00 [DBG] Disconnect: rabbitmq@localhost:5672/
+2022-08-05 21:41:30.948 +04:00 [DBG] Disconnected: rabbitmq@localhost:5672/
+2022-08-05 21:41:30.950 +04:00 [INF] Bus stopped: "rabbitmq://localhost:0/"
+2022-08-05 21:41:30.952 +04:00 [DBG] Hosting stopped
+2022-08-05 21:55:35.075 +04:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-05 21:55:35.217 +04:00 [DBG] Hosting starting
+2022-08-05 21:55:35.754 +04:00 [INF] Configured endpoint add-items, Consumer: ItemsMicroservice.Consumers.AddItemsConsumer
+2022-08-05 21:55:35.904 +04:00 [INF] Configured endpoint get-items, Consumer: ItemsMicroservice.Consumers.GetItemsConsumer
+2022-08-05 21:55:36.687 +04:00 [DBG] Starting bus instances: IBus
+2022-08-05 21:55:36.726 +04:00 [DBG] Starting bus: "rabbitmq://localhost:0/"
+2022-08-05 21:55:39.324 +04:00 [DBG] Connect: rabbitmq@localhost:5672/
+2022-08-05 21:55:40.113 +04:00 [INF] Now listening on: http://localhost:5019
+2022-08-05 21:55:40.203 +04:00 [DBG] Loaded hosting startup assembly ItemsMicroservice
+2022-08-05 21:55:40.211 +04:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-08-05 21:55:40.228 +04:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-08-05 21:55:40.248 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-05 21:55:40.254 +04:00 [INF] Hosting environment: Development
+2022-08-05 21:55:40.256 +04:00 [INF] Content root path: D:\github\microservices-archetecture\src\ItemsMicroservice\
+2022-08-05 21:55:40.259 +04:00 [DBG] Hosting started
+2022-08-05 21:55:40.300 +04:00 [DBG] Connected: rabbitmq@localhost:5672/ (address: amqp://localhost:5672, local: 55356)
+2022-08-05 21:55:40.508 +04:00 [DBG] Connection id "0HMJN1EQT15LP" accepted.
+2022-08-05 21:55:40.534 +04:00 [DBG] Connection id "0HMJN1EQT15LP" received FIN.
+2022-08-05 21:55:40.595 +04:00 [DBG] Connection id "0HMJN1EQT15LP" started.
+2022-08-05 21:55:40.655 +04:00 [DBG] Connection id "0HMJN1EQT15LP" sending FIN because: "The client closed the connection."
+2022-08-05 21:55:40.689 +04:00 [DBG] Connection id "0HMJN1EQT15LP" disconnecting.
+2022-08-05 21:55:40.748 +04:00 [DBG] Connection id "0HMJN1EQT15LP" stopped.
+2022-08-05 21:55:43.023 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmicdbdp8qn71g1?temporary=true"
+2022-08-05 21:55:43.045 +04:00 [DBG] Declare queue: name: get-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 21:55:43.069 +04:00 [DBG] Declare exchange: name: get-items, type: fanout, durable
+2022-08-05 21:55:43.079 +04:00 [DBG] Declare exchange: name: Contracts:IGetItemsRequest, type: fanout, durable
+2022-08-05 21:55:43.094 +04:00 [DBG] Bind queue: source: get-items, destination: get-items
+2022-08-05 21:55:43.132 +04:00 [DBG] Bind exchange: source: Contracts:IGetItemsRequest, destination: get-items
+2022-08-05 21:55:43.207 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/get-items" - amq.ctag-yMx4MUJZ0brwqH1PycrTQg
+2022-08-05 21:55:43.210 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/get-items"
+2022-08-05 21:55:44.523 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" accepted.
+2022-08-05 21:55:44.531 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" started.
+2022-08-05 21:55:44.609 +04:00 [DBG] Declare queue: name: add-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 21:55:44.694 +04:00 [DBG] Declare exchange: name: add-items, type: fanout, durable
+2022-08-05 21:55:44.713 +04:00 [DBG] Declare exchange: name: Contracts:IAddItemsRequest, type: fanout, durable
+2022-08-05 21:55:44.734 +04:00 [DBG] Bind queue: source: add-items, destination: add-items
+2022-08-05 21:55:44.753 +04:00 [DBG] Bind exchange: source: Contracts:IAddItemsRequest, destination: add-items
+2022-08-05 21:55:44.768 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger - -
+2022-08-05 21:55:44.799 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/add-items" - amq.ctag-oig1fw-Qh_QVx1wO9BMngg
+2022-08-05 21:55:44.805 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/add-items"
+2022-08-05 21:55:44.817 +04:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2022-08-05 21:55:44.862 +04:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-08-05 21:55:44.884 +04:00 [DBG] No candidates found for the request path '/swagger'
+2022-08-05 21:55:44.890 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:45.009 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" completed keep alive response.
+2022-08-05 21:55:45.015 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger - - - 301 0 - 263.6995ms
+2022-08-05 21:55:45.046 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/index.html - -
+2022-08-05 21:55:45.050 +04:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2022-08-05 21:55:45.052 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:45.209 +04:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-08-05 21:55:45.416 +04:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-08-05 21:55:45.429 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" completed keep alive response.
+2022-08-05 21:55:45.431 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/index.html - - - 200 - text/html;charset=utf-8 385.5083ms
+2022-08-05 21:55:45.616 +04:00 [DBG] Connection id "0HMJN1EQT15LR" accepted.
+2022-08-05 21:55:45.619 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui.css - -
+2022-08-05 21:55:45.631 +04:00 [DBG] Connection id "0HMJN1EQT15LS" accepted.
+2022-08-05 21:55:45.634 +04:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2022-08-05 21:55:45.648 +04:00 [DBG] Connection id "0HMJN1EQT15LS" started.
+2022-08-05 21:55:45.638 +04:00 [DBG] Connection id "0HMJN1EQT15LR" started.
+2022-08-05 21:55:45.695 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui-bundle.js - -
+2022-08-05 21:55:45.702 +04:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2022-08-05 21:55:45.691 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui-standalone-preset.js - -
+2022-08-05 21:55:45.661 +04:00 [DBG] Connection id "0HMJN1EQT15LT" accepted.
+2022-08-05 21:55:45.681 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:45.719 +04:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+2022-08-05 21:55:45.710 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:45.737 +04:00 [DBG] Connection id "0HMJN1EQT15LT" started.
+2022-08-05 21:55:45.742 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:45.965 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - -
+2022-08-05 21:55:45.998 +04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-08-05 21:55:45.998 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-08-05 21:55:46.064 +04:00 [DBG] Connection id "0HMJN1EQT15LT" completed keep alive response.
+2022-08-05 21:55:46.063 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" completed keep alive response.
+2022-08-05 21:55:46.082 +04:00 [DBG] Connection id "0HMJN1EQT15LR" completed keep alive response.
+2022-08-05 21:55:46.084 +04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-08-05 21:55:46.085 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - - - 200 11951 application/javascript;+charset=utf-8 120.1260ms
+2022-08-05 21:55:46.090 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui.css - - - 200 143632 text/css 470.5764ms
+2022-08-05 21:55:46.125 +04:00 [DBG] Connection id "0HMJN1EQT15LS" completed keep alive response.
+2022-08-05 21:55:46.121 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 425.9979ms
+2022-08-05 21:55:46.151 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 459.7789ms
+2022-08-05 21:55:46.607 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/favicon-32x32.png - -
+2022-08-05 21:55:46.620 +04:00 [DBG] No candidates found for the request path '/swagger/favicon-32x32.png'
+2022-08-05 21:55:46.633 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:46.639 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-08-05 21:55:46.670 +04:00 [DBG] Connection id "0HMJN1EQT15LR" completed keep alive response.
+2022-08-05 21:55:46.677 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/favicon-32x32.png - - - 200 628 image/png 68.7205ms
+2022-08-05 21:55:46.878 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - -
+2022-08-05 21:55:46.880 +04:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2022-08-05 21:55:46.882 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 21:55:46.938 +04:00 [DBG] Connection id "0HMJN1EQT15LR" completed keep alive response.
+2022-08-05 21:55:46.943 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 64.3057ms
+2022-08-05 21:56:22.561 +04:00 [DBG] Create send transport: "rabbitmq://localhost:0/buy-items-saga-state"
+2022-08-05 21:56:22.648 +04:00 [DBG] RECEIVE "rabbitmq://localhost:0/get-items" "e0330000-5df3-0015-421e-08da770bcea1" Contracts.IGetItemsRequest ItemsMicroservice.Consumers.GetItemsConsumer("00:00:00.1109653")
+2022-08-05 21:56:22.694 +04:00 [DBG] Declare exchange: name: buy-items-saga-state, type: fanout, durable
+2022-08-05 21:56:22.835 +04:00 [DBG] SEND "rabbitmq://localhost:0/buy-items-saga-state" "da210000-5df3-0015-4256-08da770bcef7" Contracts.IGetItemsResponse
+2022-08-05 21:57:41.062 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" received FIN.
+2022-08-05 21:57:41.064 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" disconnecting.
+2022-08-05 21:57:41.069 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" sending FIN because: "The client closed the connection."
+2022-08-05 21:57:41.087 +04:00 [DBG] Connection id "0HMJN1EQT15LQ" stopped.
+2022-08-05 21:57:42.063 +04:00 [DBG] Connection id "0HMJN1EQT15LS" received FIN.
+2022-08-05 21:57:42.067 +04:00 [DBG] Connection id "0HMJN1EQT15LR" received FIN.
+2022-08-05 21:57:42.070 +04:00 [DBG] Connection id "0HMJN1EQT15LS" disconnecting.
+2022-08-05 21:57:42.079 +04:00 [DBG] Connection id "0HMJN1EQT15LR" sending FIN because: "The client closed the connection."
+2022-08-05 21:57:42.067 +04:00 [DBG] Connection id "0HMJN1EQT15LT" received FIN.
+2022-08-05 21:57:42.084 +04:00 [DBG] Connection id "0HMJN1EQT15LS" sending FIN because: "The client closed the connection."
+2022-08-05 21:57:42.086 +04:00 [DBG] Connection id "0HMJN1EQT15LR" disconnecting.
+2022-08-05 21:57:42.088 +04:00 [DBG] Connection id "0HMJN1EQT15LT" sending FIN because: "The client closed the connection."
+2022-08-05 21:57:42.090 +04:00 [DBG] Connection id "0HMJN1EQT15LR" stopped.
+2022-08-05 21:57:42.092 +04:00 [DBG] Connection id "0HMJN1EQT15LT" disconnecting.
+2022-08-05 21:57:42.093 +04:00 [DBG] Connection id "0HMJN1EQT15LS" stopped.
+2022-08-05 21:57:42.095 +04:00 [DBG] Connection id "0HMJN1EQT15LT" stopped.
+2022-08-05 22:06:17.840 +04:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-05 22:06:18.046 +04:00 [DBG] Hosting starting
+2022-08-05 22:06:18.767 +04:00 [INF] Configured endpoint add-items, Consumer: ItemsMicroservice.Consumers.AddItemsConsumer
+2022-08-05 22:06:18.779 +04:00 [INF] Configured endpoint get-items, Consumer: ItemsMicroservice.Consumers.GetItemsConsumer
+2022-08-05 22:06:19.226 +04:00 [DBG] Starting bus instances: IBus
+2022-08-05 22:06:19.239 +04:00 [DBG] Starting bus: "rabbitmq://localhost:0/"
+2022-08-05 22:06:19.348 +04:00 [DBG] Connect: rabbitmq@localhost:5672/
+2022-08-05 22:06:19.828 +04:00 [INF] Now listening on: http://localhost:5019
+2022-08-05 22:06:19.918 +04:00 [DBG] Loaded hosting startup assembly ItemsMicroservice
+2022-08-05 22:06:19.919 +04:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-08-05 22:06:19.921 +04:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-08-05 22:06:19.924 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-05 22:06:19.925 +04:00 [INF] Hosting environment: Development
+2022-08-05 22:06:19.927 +04:00 [INF] Content root path: D:\github\microservices-archetecture\src\ItemsMicroservice\
+2022-08-05 22:06:19.928 +04:00 [DBG] Hosting started
+2022-08-05 22:06:19.930 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" received FIN.
+2022-08-05 22:06:19.933 +04:00 [DBG] Connected: rabbitmq@localhost:5672/ (address: amqp://localhost:5672, local: 53063)
+2022-08-05 22:06:19.948 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" accepted.
+2022-08-05 22:06:19.954 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" started.
+2022-08-05 22:06:20.004 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" sending FIN because: "The client closed the connection."
+2022-08-05 22:06:20.046 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/SMS2104090_ItemsMicroservice_bus_5eooyyn76cybmntmbdp8qdj1yc?temporary=true"
+2022-08-05 22:06:20.062 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" disconnecting.
+2022-08-05 22:06:20.082 +04:00 [DBG] Connection id "0HMJN1KPF2IN4" stopped.
+2022-08-05 22:06:20.087 +04:00 [DBG] Declare queue: name: add-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 22:06:20.108 +04:00 [DBG] Declare queue: name: get-items, durable, consumer-count: 0 message-count: 0
+2022-08-05 22:06:20.137 +04:00 [DBG] Declare exchange: name: add-items, type: fanout, durable
+2022-08-05 22:06:20.137 +04:00 [DBG] Declare exchange: name: get-items, type: fanout, durable
+2022-08-05 22:06:20.147 +04:00 [DBG] Declare exchange: name: Contracts:IAddItemsRequest, type: fanout, durable
+2022-08-05 22:06:20.147 +04:00 [DBG] Declare exchange: name: Contracts:IGetItemsRequest, type: fanout, durable
+2022-08-05 22:06:20.282 +04:00 [DBG] Bind queue: source: add-items, destination: add-items
+2022-08-05 22:06:20.288 +04:00 [DBG] Bind queue: source: get-items, destination: get-items
+2022-08-05 22:06:20.324 +04:00 [DBG] Bind exchange: source: Contracts:IAddItemsRequest, destination: add-items
+2022-08-05 22:06:20.368 +04:00 [DBG] Bind exchange: source: Contracts:IGetItemsRequest, destination: get-items
+2022-08-05 22:06:20.406 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" accepted.
+2022-08-05 22:06:20.512 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/add-items" - amq.ctag-xYpJ1NtLA3JzuRYtRc6zYA
+2022-08-05 22:06:20.539 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" started.
+2022-08-05 22:06:20.552 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/add-items"
+2022-08-05 22:06:20.636 +04:00 [DBG] Consumer Ok: "rabbitmq://localhost:0/get-items" - amq.ctag-McDkNwrwhkwJsCvPnprZRA
+2022-08-05 22:06:20.667 +04:00 [DBG] Endpoint Ready: "rabbitmq://localhost:0/get-items"
+2022-08-05 22:06:20.685 +04:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2022-08-05 22:06:20.702 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/index.html - -
+2022-08-05 22:06:20.862 +04:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-08-05 22:06:20.882 +04:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2022-08-05 22:06:20.889 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 22:06:21.089 +04:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-08-05 22:06:21.241 +04:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-08-05 22:06:21.244 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" completed keep alive response.
+2022-08-05 22:06:21.249 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/index.html - - - 200 - text/html;charset=utf-8 556.1273ms
+2022-08-05 22:06:21.364 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - -
+2022-08-05 22:06:21.400 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" completed keep alive response.
+2022-08-05 22:06:21.405 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - - - 200 11951 application/javascript;+charset=utf-8 40.7357ms
+2022-08-05 22:06:21.728 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/favicon-32x32.png - -
+2022-08-05 22:06:21.728 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" received FIN.
+2022-08-05 22:06:21.731 +04:00 [DBG] No candidates found for the request path '/swagger/favicon-32x32.png'
+2022-08-05 22:06:21.732 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" sending FIN because: "The client closed the connection."
+2022-08-05 22:06:21.734 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 22:06:21.736 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" disconnecting.
+2022-08-05 22:06:21.752 +04:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2022-08-05 22:06:21.892 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-08-05 22:06:21.895 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/favicon-32x32.png - - - 0 628 image/png 167.6534ms
+2022-08-05 22:06:21.901 +04:00 [DBG] Connection id "0HMJN1KPF2IN5" stopped.
+2022-08-05 22:06:21.991 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" accepted.
+2022-08-05 22:06:21.994 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" started.
+2022-08-05 22:06:21.996 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - -
+2022-08-05 22:06:21.999 +04:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2022-08-05 22:06:22.001 +04:00 [DBG] Request did not match any endpoints
+2022-08-05 22:06:22.051 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" completed keep alive response.
+2022-08-05 22:06:22.053 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 56.7620ms
+2022-08-05 22:07:14.736 +04:00 [DBG] Create send transport: "rabbitmq://localhost:0/buy-items-saga-state"
+2022-08-05 22:07:14.798 +04:00 [DBG] RECEIVE "rabbitmq://localhost:0/get-items" "0c5b0000-5df3-0015-252a-08da770d5371" Contracts.IGetItemsRequest ItemsMicroservice.Consumers.GetItemsConsumer("00:00:00.0813720")
+2022-08-05 22:07:14.834 +04:00 [DBG] Declare exchange: name: buy-items-saga-state, type: fanout, durable
+2022-08-05 22:07:14.949 +04:00 [DBG] SEND "rabbitmq://localhost:0/buy-items-saga-state" "da210000-5df3-0015-d647-08da770d53ab" Contracts.IGetItemsResponse
+2022-08-05 22:08:17.296 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" received FIN.
+2022-08-05 22:08:17.299 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" sending FIN because: "The client closed the connection."
+2022-08-05 22:08:17.306 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" disconnecting.
+2022-08-05 22:08:17.307 +04:00 [DBG] Connection id "0HMJN1KPF2IN6" stopped.
+2022-08-05 22:10:17.538 +04:00 [DBG] RECEIVE "rabbitmq://localhost:0/get-items" "0c5b0000-5df3-0015-5276-08da770dbe8a" Contracts.IGetItemsRequest ItemsMicroservice.Consumers.GetItemsConsumer("00:00:03.3987757")
+2022-08-05 22:10:17.565 +04:00 [DBG] SEND "rabbitmq://localhost:0/buy-items-saga-state" "da210000-5df3-0015-cda8-08da770dc091" Contracts.IGetItemsResponse
